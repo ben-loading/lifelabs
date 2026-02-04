@@ -3,12 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3003",
+    "dev:3004": "next dev -p 3004",
+    "dev:3005": "next dev -p 3005",
     "build": "next build",
     "start": "next start",
+    "start:3004": "next start -p 3004",
+    "deploy": "next build && next start -p 3004",
     "lint": "eslint"
   },
   "dependencies": {
+    "lucide-react": "^0.454.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
