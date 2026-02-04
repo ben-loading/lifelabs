@@ -56,7 +56,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">加入社区</h3>
             <a
-              href="https://discord.gg/lifelabs"
+              href="https://discord.gg/qDHz3E6NYA"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 transition-colors"
