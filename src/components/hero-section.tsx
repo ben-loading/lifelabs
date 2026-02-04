@@ -5,8 +5,11 @@ import { MysticalSymbols } from '@/components/mystical-symbols'
 import { ParticleField } from '@/components/particle-field'
 import { TextDecode } from '@/components/text-decode'
 import { CodeGlitch } from '@/components/code-glitch'
+import { useLocale } from '@/contexts/locale-context'
 
 export function HeroSection() {
+  const { t } = useLocale()
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -48,26 +51,26 @@ export function HeroSection() {
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance leading-tight">
             <TextDecode
-              text="你的人生"
+              text={t.hero.line1}
               delay={200}
               className="block mb-2 text-2xl md:text-3xl font-normal text-muted-foreground font-serif"
               as="span"
             />
             <span className="relative inline-block">
               <TextDecode
-                text="值得一场"
+                text={t.hero.line2}
                 delay={800}
                 className="block"
                 as="span"
               />
               <TextDecode
-                text="深度实验"
+                text={t.hero.line3}
                 delay={1400}
                 className="block mt-3 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradientShift_8s_ease_infinite]"
                 as="span"
               >
                 <span className="bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradientShift_8s_ease_infinite]" style={{ backgroundImage: 'linear-gradient(90deg, oklch(0.55 0.10 45), oklch(0.62 0.15 30), oklch(0.55 0.10 45))' }}>
-                  深度实验
+                  {t.hero.line4}
                 </span>
               </TextDecode>
             </span>
@@ -75,13 +78,13 @@ export function HeroSection() {
 
           <div className="max-w-3xl mx-auto space-y-4">
             <TextDecode
-              text="八字 · 紫微 · 星盘 · 生命编码"
+              text={t.hero.tagline}
               delay={2000}
               className="text-xl md:text-2xl text-foreground/80 font-serif leading-relaxed"
               as="p"
             />
             <TextDecode
-              text="在 Lifelabs，每一次探索都是一场科学实验。用系统化的方法，重新认识你的性格、天赋和潜能。"
+              text={t.hero.intro}
               delay={2400}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed"
               as="p"

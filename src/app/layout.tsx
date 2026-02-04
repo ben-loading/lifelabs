@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif_SC, Inter } from "next/font/google";
+import { LocaleProvider } from "@/contexts/locale-context";
 import "./globals.css";
 
 const notoSerifSC = Noto_Serif_SC({
@@ -24,11 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-Hans">
+    <html lang="zh-Hant" suppressHydrationWarning>
       <body
         className={`${notoSerifSC.variable} ${inter.variable} font-serif antialiased`}
       >
-        {children}
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );

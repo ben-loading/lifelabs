@@ -1,6 +1,10 @@
 'use client'
 
+import { useLocale } from '@/contexts/locale-context'
+
 export function PhilosophySection() {
+  const { t } = useLocale()
+
   return (
     <section className="py-24 px-4 bg-muted/30 relative overflow-hidden" id="philosophy">
       <div className="absolute inset-0 opacity-5">
@@ -17,12 +21,11 @@ export function PhilosophySection() {
         <div className="text-center space-y-6 mb-20">
           <div className="inline-block text-5xl font-serif text-muted-foreground/40 mb-2">☯</div>
           <h2 className="text-4xl md:text-5xl font-bold text-balance">
-            <span className="font-serif">生命工程学</span>
-            <span className="block mt-3 text-3xl md:text-4xl text-secondary">不是迷信，而是探索</span>
+            <span className="font-serif">{t.philosophy.title}</span>
+            <span className="block mt-3 text-3xl md:text-4xl text-secondary">{t.philosophy.subtitle}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance leading-relaxed">
-            每个人都有独特的生命编码。我们相信，通过系统的方法解读这些编码，
-            能够帮助你更好地理解自己，规划人生。
+            {t.philosophy.desc}
           </p>
         </div>
 
@@ -46,9 +49,9 @@ export function PhilosophySection() {
                 ))}
               </svg>
             </div>
-            <h3 className="text-xl font-semibold font-serif">古老智慧</h3>
+            <h3 className="text-xl font-semibold font-serif">{t.philosophy.card1Title}</h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
-              八字、紫微斗数、星盘等传统体系，蕴含着千年的观察与智慧
+              {t.philosophy.card1Desc}
             </p>
           </div>
 
@@ -73,9 +76,9 @@ export function PhilosophySection() {
                 <circle cx="50" cy="50" r="3" fill="currentColor" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold font-serif">现代解读</h3>
+            <h3 className="text-xl font-semibold font-serif">{t.philosophy.card2Title}</h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
-              运用系统方法和现代认知科学，将传统智慧转化为实用的自我认知工具
+              {t.philosophy.card2Desc}
             </p>
           </div>
 
@@ -104,9 +107,9 @@ export function PhilosophySection() {
                 <circle cx="45" cy="10" r="18" strokeWidth="1.5" opacity="0.2" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold font-serif">个人成长</h3>
+            <h3 className="text-xl font-semibold font-serif">{t.philosophy.card3Title}</h3>
             <p className="text-muted-foreground leading-relaxed text-sm">
-              专注于自我探索和提升，帮助你找到属于自己的人生方向
+              {t.philosophy.card3Desc}
             </p>
           </div>
         </div>

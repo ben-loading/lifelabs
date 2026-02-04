@@ -2,9 +2,11 @@
 
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useLocale } from '@/contexts/locale-context'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { locale, setLocale, t } = useLocale()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -42,33 +44,68 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-wide font-serif">Lifelabs</span>
-              <span className="text-xs text-muted-foreground tracking-wider -mt-0.5">人生实验室</span>
+              <span className="text-xs text-muted-foreground tracking-wider -mt-0.5">{t.header.subtitle}</span>
             </div>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
             <a href="#philosophy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              理念
+              {t.header.navPhilosophy}
             </a>
             <a href="#products" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              产品
+              {t.header.navProducts}
             </a>
             <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              关于
+              {t.header.navAbout}
             </a>
+            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+              <button
+                type="button"
+                onClick={() => setLocale('zh-Hans')}
+                className={`px-2 py-0.5 rounded transition-colors ${locale === 'zh-Hans' ? 'text-foreground font-medium bg-muted' : 'hover:text-foreground'}`}
+              >
+                简
+              </button>
+              <span className="opacity-50">|</span>
+              <button
+                type="button"
+                onClick={() => setLocale('zh-Hant')}
+                className={`px-2 py-0.5 rounded transition-colors ${locale === 'zh-Hant' ? 'text-foreground font-medium bg-muted' : 'hover:text-foreground'}`}
+              >
+                繁
+              </button>
+            </div>
           </div>
 
-          <button
-            type="button"
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex md:hidden items-center gap-1 text-sm text-muted-foreground">
+              <button
+                type="button"
+                onClick={() => setLocale('zh-Hans')}
+                className={`px-2 py-0.5 rounded ${locale === 'zh-Hans' ? 'text-foreground font-medium bg-muted' : ''}`}
+              >
+                简
+              </button>
+              <button
+                type="button"
+                onClick={() => setLocale('zh-Hant')}
+                className={`px-2 py-0.5 rounded ${locale === 'zh-Hant' ? 'text-foreground font-medium bg-muted' : ''}`}
+              >
+                繁
+              </button>
+            </div>
+            <button
+              type="button"
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {mobileMenuOpen && (
@@ -78,21 +115,21 @@ export function Header() {
               className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              理念
+              {t.header.navPhilosophy}
             </a>
             <a
               href="#products"
               className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              产品
+              {t.header.navProducts}
             </a>
             <a
               href="#about"
               className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              关于
+              {t.header.navAbout}
             </a>
           </div>
         )}
