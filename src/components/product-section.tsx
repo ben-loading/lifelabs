@@ -73,7 +73,11 @@ export function ProductSection() {
                   </div>
                 ))}
               </div>
-              <Button size="lg" className="w-full sm:w-auto text-lg px-8 bg-secondary hover:bg-secondary/90 group/btn">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto text-lg px-8 bg-secondary hover:bg-secondary/90 group/btn"
+                onClick={() => window.open('https://lifecode.lifelabs.fun', '_blank')}
+              >
                 {t.product.cta}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
